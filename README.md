@@ -91,3 +91,8 @@ This is the place for you to write reflections:
 3. Postman dapat digunakan untuk testing endpoint dari aplikasi kita. Postman dapat berfungsi untuk kita melihat behaviour dari aplikasi kita apakah sesuai dengan yang diharapkan. Pada Postman kita dapat mengirim berbagai macam method, memasukkan credential, form dan lain sebagainya. Postman juga akan memberikan response. Hal ini tentunya sangat berguna karena kita dapat mencoba akses endpoint kita sesuai yang kita harapkan atau tidak.
 
 #### Reflection Publisher-3
+1. Pada kasus ini, kita menggunakan `Push Model` yang mana saat terjadi create, delete, dan update akan dipanggil `NotificationService` yang akan mengiterasi semua subscriber dan memberikan update terbaru.
+
+2. Keuntungan jika menggunakan pull adalah program akan lebih efisien karena hanya akan memberikan data saat subscriber membutuhkan. Observer juga dapat menentukan pilihan mereka sendiri apakah perubahan data yang ada relevan. Namun, konsiderasi untuk metode pull adalah observer menjadi perlu untuk mengetahui struktur dari data sumbernya agar bisa melakukan hal tersebut.
+
+3. Apabila kita tidak melakukan multithreading, maka yang akan terjadi adalah akan terjadi antrian panjang karena NotificationService perlu notify tiap subscribernya satu-satu yang bisa menyebabkan pengiriman notifiksi terhambat karena bottleneck dengan komputasi.
